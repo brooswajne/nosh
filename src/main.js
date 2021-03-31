@@ -1,5 +1,5 @@
-import { connect } from '../client/socket.js';
 import App from '../components/app.svelte';
+import { connect } from '../client/socket.js';
 
 const splash = document.getElementById('splash');
 const target = document.getElementById('app');
