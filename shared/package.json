@@ -1,0 +1,12 @@
+{
+  "name": "shared",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "npm run watch -- --preserveWatchOutput"
+  }
+}

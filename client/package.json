@@ -1,0 +1,21 @@
+{
+	"name": "client",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+
+	"main": "./client.js",
+
+	"scripts": {
+		"build": "node build.script.js",
+		"watch": "node build.script.js --watch --sourcemaps",
+		"dev": "npm run watch"
+	},
+
+	"devDependencies": {
+		"esbuild": "^0.11.22",
+		"esbuild-svelte": "^0.5.1",
+		"shared": "file:../shared",
+		"svelte": "^3.35.0"
+	}
+}

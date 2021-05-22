@@ -1,0 +1,27 @@
+{
+	"name": "server",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+
+	"scripts": {
+		"build": "tsc",
+		"watch": "tsc --watch",
+		"start": "node dist/server.js",
+		"dev": "concurrently -n build,serve -c bold.blue,bold.magenta 'npm run watch -- --preserveWatchOutput' 'nodemon dist/server.js -w dist'"
+	},
+
+	"dependencies": {
+		"@brooswajne/poodle": "file:../../../modules/poodle",
+		"@brooswajne/terrier": "file:../../../modules/terrier",
+		"client": "file:../client",
+		"pg": "^8.5.1",
+		"shared": "file:../shared",
+		"ws": "^7.4.3"
+	},
+	"devDependencies": {
+		"@types/pg": "^7.14.10",
+		"@types/ws": "^7.4.0",
+		"concurrently": "^6.1.0"
+	}
+}
