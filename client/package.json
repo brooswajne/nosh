@@ -16,6 +16,8 @@
 		"esbuild": "^0.11.22",
 		"esbuild-svelte": "^0.5.1",
 		"shared": "file:../shared",
-		"svelte": "^3.35.0"
+		"svelte": "^3.35.0",
+		"svelte-check": "^1.5.4",
+		"svelte-preprocess": "^4.7.3"
 	}
 }

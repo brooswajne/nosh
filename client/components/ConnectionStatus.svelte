@@ -1,20 +1,19 @@
-<script>
+<script lang="ts">
 import {
 	autoReconnectDelay,
 	isConnected,
 } from '../utils/socket.js';
 
 const SECOND_IN_MS = 1000;
-const MIN_IN_MS = 60 * SECOND_IN_MS;
+const MIN_IN_SECONDS = 60;
 
 // TODO: abstract to util file and make a lot better
-/** @param {number} ms */
-function getTimeString(ms) {
-	const s = ms / 1000;
+function getTimeString(ms: number) {
+	const s = ms / SECOND_IN_MS;
 	if (s < 1) return `${ms}ms`;
-	const min = s / 60;
+	const min = s / MIN_IN_SECONDS;
 	if (min < 1) return `${Math.floor(s)}s`;
-	else return `${Math.floor(min)}m${Math.floor(s % 60)}s`;
+	return `${Math.floor(min)}m${Math.floor(s % MIN_IN_SECONDS)}s`;
 }
 </script>
 

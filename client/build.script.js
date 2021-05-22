@@ -12,6 +12,7 @@ import {
 	traverse,
 } from 'shared/dist/files.js';
 import esbuild from 'esbuild';
+import preprocess from 'svelte-preprocess';
 import svelte from 'esbuild-svelte';
 
 import {
@@ -37,7 +38,9 @@ const javascript = ( ) => esbuild.build({
 	bundle: true,
 	sourcemap: shouldMap,
 	watch: shouldWatch,
-	plugins: [ svelte( ) ],
+	plugins: [ svelte({
+		preprocess: preprocess( ),
+	}) ],
 });
 const assets = ( ) => traverse(DIR_ASSETS, async function copy(file) {
 	const extension = extname(file);

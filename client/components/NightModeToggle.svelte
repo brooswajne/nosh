@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 const root = document.documentElement;
-let checked = root.dataset['theme'] === 'dark';
-$: root.dataset['theme'] = checked ? 'dark' : 'light';
+let checked = root.dataset[ 'theme' ] === 'dark';
+$: root.dataset[ 'theme' ] = checked ? 'dark' : 'light';
 </script>
 
 <div class="dark-mode-toggle">
