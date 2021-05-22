@@ -13,7 +13,7 @@ import {
  * Recursively traverses all files in the given directory, calling the provided `callback` for
  * each file. */
 export async function traverse(
-	directory: string, 
+	directory: string,
 	visit: (path: string) => Promise<void>,
 ): Promise<void> {
 	const entries = await readdir(directory, { withFileTypes: true });
@@ -26,7 +26,7 @@ export async function traverse(
 }
 
 /**
- * Recursively ensures that the file at the given path is a directory entry (along with all its 
+ * Recursively ensures that the file at the given path is a directory entry (along with all its
  * parent paths).
  */
 export async function ensureDir(path: string): Promise<void> {

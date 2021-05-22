@@ -9,14 +9,14 @@ export function generateRandomInt(min: number, max: number): number {
 }
 
 /** Picks a random element of the given array.  */
-export function pick<TElement>(array: Array<TElement>): TElement {
+export function pick<TElement>(array: TElement[]): TElement {
 	const index = generateRandomInt(0, array.length);
 	return array[ index ];
 }
 
 /** Generates a random string with the specified length.  */
 export function generateRandomString(
-	length: number, 
+	length: number,
 	alphabet: string = DEFAULT_ALPHABET,
 ): string {
 	let string = '';
@@ -28,4 +28,4 @@ export function generateRandomString(
 }
 
 /** Generates a random string ID for logging purposes. */
-export const generateLoggingID = ( ) => generateRandomString(LENGTH_LOGGING_ID);
+export const generateLoggingID = ( ): string => generateRandomString(LENGTH_LOGGING_ID);
