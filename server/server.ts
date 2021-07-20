@@ -55,12 +55,12 @@ const STATUS_CODE_BAD = 400;
 		getRequestContext: getRequestContext,
 		onErrorHandling: ({ logger }, error) => logger.error('Error handling request:', error),
 		onErrorWriting: ({ logger }, error) => logger.error('Error writing response:', error),
-		onResponded: function logResponseTime({ logger, timestamp }, response) {
+		onResponded: function logResponseTime({ request, logger, timestamp }, response) {
 			const status = response.statusCode;
 			const isSuccess = status < STATUS_CODE_BAD;
 
 			const duration = Date.now( ) - timestamp;
-			const message = `${status} after ${duration}ms`;
+			const message = `${request.method} ${request.url}: ${status} (${duration}ms)`;
 
 			if (isSuccess) logger.info(message);
 			else logger.warn(message);
@@ -70,7 +70,7 @@ const STATUS_CODE_BAD = 400;
 	logger.debug('Initializing WebSocket server...');
 	server.on('upgrade', function handleUpgrade(req, socket, head) {
 		const logger = getRequestLogger( );
-		logger.info(`UPGRADE ${req.url}`);
+		logger.debug(`UPGRADE ${req.url}`);
 
 		const isPathAllowed = req.url === SOCKET_PATH;
 		if (!isPathAllowed) {

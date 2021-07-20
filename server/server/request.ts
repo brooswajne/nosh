@@ -13,6 +13,6 @@ export const getRequestLogger = getChildFactory('request');
 export function getRequestContext(request: ServerRequest): RequestContext {
 	const logger = getRequestLogger( );
 	const timestamp = Date.now( );
-	logger.info(`${request.method} ${request.url}`);
+	logger.debug(`${request.method} ${request.url}`);
 	return { request, logger, timestamp };
 }
